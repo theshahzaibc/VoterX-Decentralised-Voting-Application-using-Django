@@ -1,34 +1,59 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
     <title>VoteX</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 <body>
-    <h1>VoteX</h1>
-    <div>
-        <h2>Register Voter</h2>
-        <input type="text" id="voter-address" placeholder="Voter Address">
-        <button onclick="registerVoter()">Register</button>
+
+<div class="container" bis_skin_checked="1">
+    <div class="row" bis_skin_checked="1">
+        <div class="col-lg-10  col-md-12" bis_skin_checked="1">
+
+            <div class="w-100 p-4 justify-content-center pb-4" bis_skin_checked="1">
+                <h1 class="mt-5">VoterX</h1>
+                <form class="mt-5 form-inline">
+                    <h2>Register Voter</h2>
+                    <div class="form-group mb-2" bis_skin_checked="1">
+                        <label class="form-label" for="voter-address">Voter Address</label>
+                        <input type="email" id="voter-address" class="form-control" placeholder="Voter Address">
+                    </div>
+                    <button onclick="registerVoter()" type="button" class="btn btn-success btn-lg btn-block mt-2">
+                            Register
+                        </button>
+                </form>
+                <div class="mt-5" bis_skin_checked="1">
+                    <h2>Start Voting</h2>
+                    <button onclick="startVoting()" type="button" class="btn btn-success btn-lg btn-block mt-2">Start
+                        Voting
+                    </button>
+                </div>
+                <div class="mt-5" bis_skin_checked="1">
+                    <h2>End Voting</h2>
+                    <button onclick="endVoting()" type="button" class="btn btn-success btn-lg btn-block mt-2">End
+                        Voting
+                    </button>
+                </div>
+                <div class="mt-5" bis_skin_checked="1">
+                    <h2>Cast Vote</h2>
+                    <input type="text" id="voter-address-vote" placeholder="Voter Address" class="form-control">
+                    <input type="text" id="candidate-id" placeholder="Candidate ID" class="form-control mt-2">
+                    <button onclick="castVote()" type="button" class="btn btn-success btn-lg btn-block mt-2">Vote
+                    </button>
+                </div>
+                <div class="mt-5" bis_skin_checked="1">
+                    <h2>Candidates</h2>
+                    <button onclick="getCandidates()" type="button" class="btn btn-success btn-lg btn-block mt-2">Get
+                        Candidates
+                    </button>
+                    <ul id="candidate-list"></ul>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div>
-        <h2>Start Voting</h2>
-        <button onclick="startVoting()">Start Voting</button>
-    </div>
-    <div>
-        <h2>End Voting</h2>
-        <button onclick="endVoting()">End Voting</button>
-    </div>
-    <div>
-        <h2>Cast Vote</h2>
-        <input type="text" id="voter-address-vote" placeholder="Voter Address">
-        <input type="text" id="candidate-id" placeholder="Candidate ID">
-        <button onclick="castVote()">Vote</button>
-    </div>
-    <div>
-        <h2>Candidates</h2>
-        <button onclick="getCandidates()">Get Candidates</button>
-        <ul id="candidate-list"></ul>
-    </div>
+</div>
 
     <script>
         async function registerVoter() {
@@ -77,5 +102,6 @@
             });
         }
     </script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
